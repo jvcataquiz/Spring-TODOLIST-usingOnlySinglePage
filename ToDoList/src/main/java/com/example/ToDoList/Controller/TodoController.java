@@ -42,6 +42,14 @@ public class TodoController {
            implementation.updateToDo(updateTodo);
         return "redirect:/";
     }
+    @PostMapping("/done/{id}")
+    public String done(@PathVariable Long id,@ModelAttribute("all") TODO todo){
+        TODO updateTodo = implementation.getToDoId(id);
+        updateTodo.setId(id);
+        updateTodo.setDone(!todo.getDone());
+        implementation.updateToDo(updateTodo);
+        return "redirect:/";
+    }
 
 
 }
