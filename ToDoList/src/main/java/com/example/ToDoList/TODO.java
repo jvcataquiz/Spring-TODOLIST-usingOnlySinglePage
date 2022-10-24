@@ -22,9 +22,9 @@ public class TODO {
         this.isDone = isDone;
     }
 
-    public TODO(String todoString) {
+    public TODO(String todoString, Boolean isDone) {
         this.todoString = todoString;
-        this.isDone = false;
+        this.isDone = isDone;
     }
 
     public Long getId() {

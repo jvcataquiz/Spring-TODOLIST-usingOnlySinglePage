@@ -19,6 +19,7 @@ public class TodoController {
         model.addAttribute("all",implementation.allTodolist());
         TODO todo = new TODO();
         newmodel.addAttribute("newToDo", todo);
+
         return "index";
     }
     @PostMapping("/createTodo")
@@ -31,4 +32,16 @@ public class TodoController {
         implementation.deleteToDo(id);
         return "redirect:/";
     }
+    @PostMapping("/update/{id}")
+    public String updateTodo(@PathVariable Long id,@ModelAttribute("newToDo") TODO todo){
+
+
+           TODO updateTodo = implementation.getToDoId(id);
+           updateTodo.setId(id);
+           updateTodo.setTodoString(todo.getTodoString());
+           implementation.updateToDo(updateTodo);
+        return "redirect:/";
+    }
+
+
 }

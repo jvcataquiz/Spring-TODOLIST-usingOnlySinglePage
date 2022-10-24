@@ -17,11 +17,11 @@ public class ToDoListApplication implements CommandLineRunner {
 	private TodoRepository todoRepository;
 	@Override
 	public void run(String... args) throws Exception {
-//		TODO todo1 = new TODO("Wash Dishes");
+//		TODO todo1 = new TODO("Wash Dishes",false);
 //		todoRepository.save(todo1);
-//		TODO todo2 = new TODO("Take a Bath");
+//		TODO todo2 = new TODO("Take a Bath", false);
 //		todoRepository.save(todo2);
-//		TODO todo3 = new TODO("Go to shopping Store");
+//		TODO todo3 = new TODO("Go to shopping Store", false);
 //		todoRepository.save(todo3);
 	}
 }

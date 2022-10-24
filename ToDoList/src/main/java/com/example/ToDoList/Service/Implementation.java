@@ -22,4 +22,10 @@ public class Implementation {
     public void deleteToDo(Long id){
        todoRepository.deleteById(id);
     }
+    public TODO getToDoId(Long id){
+        return todoRepository.findById(id).get();
+    }
+    public TODO updateToDo(TODO todo){
+    return todoRepository.save(todo);
+    }
 }
