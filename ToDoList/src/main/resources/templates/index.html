@@ -8,23 +8,42 @@
 <body>
 <br>
 <br>
-<div>
-    <form th:action = "@{/createTodo}" th:object ="${newToDo}">
+<div class="container">
+    <div class="row">
+        <h1>Create New Todo</h1>
+    <form th:action = "@{/createTodo}" th:object ="${newToDo}" method="post">
         <div class="mb-3">
-            <label for="todoString" class="form-label">Add To Do</label>
+            <label for="todoString" class="form-label">TODO</label>
             <input type="text" class="form-control" id="todoString" name="todoString"  th:field ="*{todoString}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    </div>
 </div>
 
 <br>
 <br>
 <div class="container">
     <div class="row">
-        <ul class="list-group" th:each="all: ${all}">
-            <li class="list-group-item" th:text="${all.todoString}"></li>
-        </ul>
+        <h1>LIST</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">TODO</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="all: ${all}">
+                <td><a th:href="@{/done/{id}(id=${all.id})}" class="btn btn-primary">Done</a></td>
+                <td th:text="${all.todoString}"></td>
+                <td><a th:href="@{/update/{id}(id=${all.id})}"  class="btn btn-primary">Update</a></td>
+                <td> <a th:href="@{/delete/{id}(id=${all.id})}"  class="btn btn-primary">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 

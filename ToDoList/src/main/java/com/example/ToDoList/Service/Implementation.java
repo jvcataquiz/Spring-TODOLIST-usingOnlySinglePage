@@ -16,4 +16,10 @@ public class Implementation {
     public List<TODO> allTodolist(){
      return todoRepository.findAll();
     }
+    public TODO insertToDo(TODO todo){
+        return todoRepository.save(todo);
+    }
+    public void deleteToDo(Long id){
+       todoRepository.deleteById(id);
+    }
 }
